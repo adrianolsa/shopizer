@@ -78,6 +78,8 @@ public class DataConfiguration {
     	dataSource.setIdleTimeout(minPoolSize);
     	dataSource.setMaximumPoolSize(maxPoolSize);
     	dataSource.setConnectionTestQuery(testQuery);
+
+        System.out.println("DB URL: "+url);
     	
     	return dataSource;
     }
