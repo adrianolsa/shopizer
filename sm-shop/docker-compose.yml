@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  shopizer:
+    image: shopizer:1.0
+    container_name: shopizer
+    restart: unless-stopped
+    ports:
+      - 8007:8080  
+    environment: 
+      #SPRING_PROFILES_ACTIVE: default
+      - "db.jdbcUrl=jdbc:mysql://mysql:3306/SALESMANAGER?autoReconnect=true&serverTimeZone=UTC&useUnicode=true&characterEncoding=UTF-8"
+      - "db.user=shopizer"
+      - "db.password=123456"
+    networks:
+      - mysql-network
+  
+networks:
+  mysql-network:
+    external: true
+
+
+
